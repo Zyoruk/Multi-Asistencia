@@ -20,8 +20,7 @@ public class Credenciales  implements java.io.Serializable {
     }
 
 	
-    public Credenciales(int idcredenciales, String correo, String contrasena) {
-        this.idcredenciales = idcredenciales;
+    public Credenciales(String correo, String contrasena) {
         this.correo = correo;
         this.contrasena = contrasena;
     }

@@ -29,6 +29,15 @@ public class Clientes  implements java.io.Serializable {
         this.tipoUsuario = tipoUsuario;
         this.nombre = nombre;
     }
+    
+     public Clientes(Credenciales credenciales, TipoUsuario tipoUsuario, String nombre,String primerApellido, String segundoApellido) {
+        this.credenciales = credenciales;
+        this.tipoUsuario = tipoUsuario;
+        this.nombre = nombre;
+        this.primerApellido = primerApellido;
+        this.segundoApellido = segundoApellido;
+    }
+    
     public Clientes(int idclientes, Credenciales credenciales, TipoUsuario tipoUsuario, String nombre, String primerApellido, String segundoApellido, Set<Poliza> polizas) {
        this.idclientes = idclientes;
        this.credenciales = credenciales;

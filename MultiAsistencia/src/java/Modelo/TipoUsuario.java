@@ -14,10 +14,6 @@ public class TipoUsuario  implements java.io.Serializable {
      private int idtipoUsuario;
      private String nombre;
      private Set<Clientes> clienteses = new HashSet<Clientes>(0);
-
-    public TipoUsuario() {
-    }
-
 	
     public TipoUsuario(String nombre) {
         this.nombre = nombre;

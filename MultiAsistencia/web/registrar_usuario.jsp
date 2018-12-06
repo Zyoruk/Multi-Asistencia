@@ -17,7 +17,7 @@
     <body>
         <h3>Registro de Usuario</h3>
         <div class="col-md-6">
-            <form action="servletRegistrar">
+            <form method= "post" action="<%=request.getContextPath() %>/ConsultaPersonaServlet">
                 <div class="form-group">
                     <input  class="form-control" id="tbName" name="tbName" type="text" placeholder="Nombre">
                 <div>
@@ -27,6 +27,7 @@
                 <input  class="form-control" id="tbPass" name="tbPass" type="password" placeholder="Contraseña">
                 <input  class="form-control" id="tbPass2" name="tbPass2" type="password" placeholder=" Repetir Contraseña">
                 <input  class="btn btn-success" id="btSubmit" name="btSumit" type="submit" value ="Crear">
+                <input  class="btn btn-warning" id="btExit" name="btExist" type="submit" value ="Regresar">
             </form>
             <c:out value="${response}"></c:out>
         </div>

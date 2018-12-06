@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-dic-2018 13:08:10 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Clientes" table="clientes" schema="dbo" catalog="multi_asistencia" optimistic-lock="version">
+        <id name="idclientes" type="int">
+            <column name="idclientes" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="credenciales" class="Modelo.Credenciales" fetch="select">
+            <column name="idcredenciales" not-null="true" unique="true" />
+        </many-to-one>
+        <many-to-one name="tipoUsuario" class="Modelo.TipoUsuario" fetch="select">
+            <column name="tipo_usuario" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="25" not-null="true" />
+        </property>
+        <property name="primerApellido" type="string">
+            <column name="primer_apellido" length="20" />
+        </property>
+        <property name="segundoApellido" type="string">
+            <column name="segundo_apellido" length="20" />
+        </property>
+        <set name="polizas" table="cliente_por_poliza" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="idclientes" not-null="true" />
+            </key>
+            <many-to-many entity-name="Modelo.Poliza">
+                <column name="idpoliza" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

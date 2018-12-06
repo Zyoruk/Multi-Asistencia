@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-dic-2018 13:08:10 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.DescripcionCobertura" table="descripcion_cobertura" schema="dbo" catalog="multi_asistencia" optimistic-lock="version">
+        <id name="iddescripcionCobertura" type="int">
+            <column name="iddescripcion_cobertura" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cobertura" class="Modelo.Cobertura" fetch="select">
+            <column name="idcobertura" not-null="true" unique="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

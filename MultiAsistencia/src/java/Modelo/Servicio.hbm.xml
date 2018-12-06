@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-dic-2018 13:08:10 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Servicio" table="servicio" schema="dbo" catalog="multi_asistencia" optimistic-lock="version">
+        <id name="idservicio" type="int">
+            <column name="idservicio" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" />
+        </property>
+        <set name="contactos" table="contacto_por_servicio" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idservicio" not-null="true" />
+            </key>
+            <many-to-many entity-name="Modelo.Contacto">
+                <column name="idcontacto" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="descripcionServicios" table="descripcion_servicio" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idservicio" not-null="true" />
+            </key>
+            <one-to-many class="Modelo.DescripcionServicio" />
+        </set>
+        <set name="coberturas" table="servicio_por_cobertura" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idservicio" not-null="true" />
+            </key>
+            <many-to-many entity-name="Modelo.Cobertura">
+                <column name="idcobertura" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

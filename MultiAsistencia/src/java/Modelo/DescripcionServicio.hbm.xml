@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-dic-2018 13:08:10 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.DescripcionServicio" table="descripcion_servicio" schema="dbo" catalog="multi_asistencia" optimistic-lock="version">
+        <id name="iddescripcionServicio" type="int">
+            <column name="iddescripcion_servicio" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="servicio" class="Modelo.Servicio" fetch="select">
+            <column name="idservicio" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -40,16 +40,14 @@ public class Login extends HttpServlet {
         
         Operaciones_login oper = new Operaciones_login();
         //identificador de usuario
-        int id = Integer.parseInt(oper.getUsuario(nombre, pass));
+        String id = oper.getUsuario(nombre, pass);
         
-        
-       
-            
-        
-        
+        if(id.equalsIgnoreCase("existe")){
+            String redirectURL = "http://localhost:8285/MultiAsistencia/Perfil.jps";
+        }
         
         //Se retorna el resultado de la consulta a la pagina jsp para visualizarlo
-        request.setAttribute("resultado", id);
+        //request.setAttribute("aviso", id);
         //El nombre de la pagina debe ser la quieres que se vizualize ejm: nombre.jsp
         request.getRequestDispatcher("index.jsp").forward(request, response);
         

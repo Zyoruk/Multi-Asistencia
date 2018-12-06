@@ -44,7 +44,11 @@ and open the template in the editor.
 								</div>
                                                                 
                                                                 <div>
+<<<<<<< HEAD
                                                                     
+=======
+                                                                    <h1> Bienvenido <%= request.getAttribute("aviso")%></h1>
+>>>>>>> db3b68f20cfaa82f6d0ec8fa6860a5528c283dfa
                                                                 </div>
 							</form>
 						</div>

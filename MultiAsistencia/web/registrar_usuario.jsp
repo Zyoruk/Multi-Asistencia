@@ -17,7 +17,7 @@
     <body>
         <h3>Registro de Usuario</h3>
         <div class="col-md-6">
-            <form method= "post" action="<%=request.getContextPath() %>/ConsultaPersonaServlet">
+            <form method= "post" action="<%=request.getContextPath() %>/Registrar">
                 <div class="form-group">
                     <input  class="form-control" id="tbName" name="tbName" type="text" placeholder="Nombre">
                 <div>
@@ -29,7 +29,7 @@
                 <input  class="btn btn-success" id="btSubmit" name="btSumit" type="submit" value ="Crear">
                 <a href="index.jsp" class="btn btn-light">Regresar</a>
             </form>
-            <c:out value="${response}"></c:out>
+            <!--<c:out value="${response}"></c:out>-->
         </div>
     </body>
 </html>

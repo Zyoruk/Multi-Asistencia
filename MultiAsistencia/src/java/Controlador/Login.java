@@ -32,6 +32,7 @@ public class Login extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
         //Obtenemos de la url (queryString el Id de la persona, vacio para consultarlos todos)
         String nombre = request.getParameter("nombre_usuario");
         String pass = request.getParameter("contrasena_usuario");
@@ -40,17 +41,21 @@ public class Login extends HttpServlet {
         
         Operaciones_login oper = new Operaciones_login();
         //identificador de usuario
-        String id = oper.getUsuario(nombre, pass);
+        String id = oper.getUsuario(nombre,pass);
         
         if(id.equalsIgnoreCase("existe")){
-            String redirectURL = "http://localhost:8285/MultiAsistencia/Perfil.jps";
-            response.sendRedirect(redirectURL);
+            request.getRequestDispatcher("Perfil.jsp").forward(request, response);
         }
+        else{
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
+        
+        
         
         //Se retorna el resultado de la consulta a la pagina jsp para visualizarlo
         //request.setAttribute("aviso", id);
         //El nombre de la pagina debe ser la quieres que se vizualize ejm: nombre.jsp
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        
         
         
     }

@@ -17,6 +17,7 @@ import org.hibernate.Transaction;
 public class Operaciones_login {
     
 Session session = null;
+
     
     public Operaciones_login() {
         
@@ -25,8 +26,9 @@ Session session = null;
     
     public String getUsuario(String username,String pass){
         
-        List <Credenciales> listaUsuario =  null;     
+        List <Credenciales> listaUsuario =  null;  
         String mensaje = "";
+        
             
         //Incluimos la consulta dentro del bloque try-catch para el manejo de transacciones
         
@@ -34,18 +36,17 @@ Session session = null;
             Transaction tx = this.session.beginTransaction();
             
             //se crea la consulta en lenguaje HQL (Hibernate), que es la base del lengiaje JPQL
-            Query q = session.createQuery("from Credenciales where idcredenciales ="+username+" and contrasena ="+pass);
+            Query q = session.createQuery("from Credenciales where correo = "+username+" and contrasena="+pass);
             
             listaUsuario = (List<Credenciales>) q.list();
             
             Iterator<Credenciales> iter = listaUsuario.iterator();
         
-        int id = 0;
         
         while(iter.hasNext()){
             Credenciales te = (Credenciales) iter.next();
             
-            if(username.equalsIgnoreCase(te.getCorreo()) && pass.equalsIgnoreCase(te.getContrasena())){
+            if(te.getCorreo().equalsIgnoreCase("Brandon")){
                 
                 mensaje = "existe";
             }
@@ -61,6 +62,7 @@ Session session = null;
             ex.printStackTrace();
             
         }
+        
         return mensaje;
     }
 

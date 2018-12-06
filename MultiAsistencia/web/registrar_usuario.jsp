@@ -27,7 +27,7 @@
                 <input  class="form-control" id="tbPass" name="tbPass" type="password" placeholder="Contraseña">
                 <input  class="form-control" id="tbPass2" name="tbPass2" type="password" placeholder=" Repetir Contraseña">
                 <input  class="btn btn-success" id="btSubmit" name="btSumit" type="submit" value ="Crear">
-                <input  class="btn btn-warning" id="btExit" name="btExist" type="submit" value ="Regresar">
+                <a href="index.jsp" class="btn btn-light">Regresar</a>
             </form>
             <c:out value="${response}"></c:out>
         </div>

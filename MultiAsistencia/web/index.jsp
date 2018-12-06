@@ -29,7 +29,7 @@ and open the template in the editor.
 							Iniciar sesión
 						</div>
 						<div class="card-container container">
-							<form method="get" action="<%=request.getContextPath() %>/Login"> 
+							<form method="post" action="<%=request.getContextPath() %>/Login"> 
 								<div class="form-group">
 									<label for="nombre-usuario">Usuario:</label>
 									<input type="text" class="form-control" name="nombre-usuario" id="nombre_usuario" placeholder="Escriba el nombre de usuario"/>

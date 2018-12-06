@@ -5,9 +5,6 @@
  */
 package Controlador;
 
-import Modelo.Clientes;
-import Modelo.Credenciales;
-import Modelo.TipoUsuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -15,14 +12,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import Modelo.Poliza;
 
 /**
  *
- * @author jif_c
+ * @author Zyoruk
  */
-@WebServlet(name = "Registrar", urlPatterns = {"/Registrar"})
-public class servletRegistrar extends HttpServlet {
-
+@WebServlet(name = "Perfil", urlPatterns = {"/Perfil"})
+public class Perfil extends HttpServlet {
+    Operaciones_Poliza polizaOps;
+    public Perfil(){
+        this.polizaOps = new Operaciones_Poliza();
+    }
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -32,38 +33,11 @@ public class servletRegistrar extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    private String name;
-    private String middleName;
-    private String lastName;
-    private String username;
-    private String password;
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            name = request.getParameter("tbName");
-            middleName = request.getParameter("tbMiddleName");
-            lastName = request.getParameter("tbLastName");
-            username =request.getParameter("tbUsername");
-            password =request.getParameter("tbPass");
-        
-            validarUsuario v = new validarUsuario();
-           
-            if(v.validar(username)){
-                request.setAttribute("resultado", "Nombre de Usuario ya existente");
-                request.getRequestDispatcher("registrar_usuario.jsp").forward(request, response);
-            } else {
-                Credenciales c = new Credenciales(username, password);
-                v.insertCredencial(c);
-                TipoUsuario t = new TipoUsuario(name);
-                v.insertTpo(t);
-                Clientes ce = new Clientes(c,t, name, middleName, lastName);
-                v.insert(ce);
-                request.getRequestDispatcher("index.jsp").forward(request, response);   
-            }
-      
-        }     
+        request.setAttribute("nombre", "abc");
+        request.setAttribute("polizassuscrito",this.polizaOps.getPolizas("0") );
+        request.getRequestDispatcher("Perfil.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -92,9 +66,14 @@ public class servletRegistrar extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-        
+        if ( request.getParameter("anular")!= null){
+            //anular.
         }
+//        request.getRequestDispatcher("Perfil.jsp").forward(request, response);
+        response.sendRedirect("/index.jsp");
+        processRequest(request, response);
+    }
+
     /**
      * Returns a short description of the servlet.
      *

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-dic-2018 10:03:01 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Cliente" table="cliente" schema="dbo" catalog="LINQ" optimistic-lock="version">
+        <id name="idcli" type="string">
+            <column name="idcli" length="4" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="telefonos" class="Modelo.Telefonos" fetch="select">
+            <column name="telefono" length="4" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="20" />
+        </property>
+        <property name="edad" type="java.lang.Integer">
+            <column name="edad" />
+        </property>
+        <property name="sexo" type="java.lang.Character">
+            <column name="sexo" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>

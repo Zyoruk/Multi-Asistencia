@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-dic-2018 10:03:01 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Telefonos" table="Telefonos" schema="dbo" catalog="LINQ" optimistic-lock="version">
+        <id name="idcliente" type="string">
+            <column name="idcliente" length="4" />
+            <generator class="assigned" />
+        </id>
+        <property name="telCasa" type="string">
+            <column name="tel_casa" length="9" />
+        </property>
+        <property name="telTrabajo" type="string">
+            <column name="tel_trabajo" length="9" />
+        </property>
+        <property name="telCelular" type="string">
+            <column name="tel_celular" length="9" />
+        </property>
+        <set name="clientes" table="cliente" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="telefono" length="4" />
+            </key>
+            <one-to-many class="Modelo.Cliente" />
+        </set>
+    </class>
+</hibernate-mapping>

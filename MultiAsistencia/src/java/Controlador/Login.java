@@ -49,7 +49,7 @@ public class Login extends HttpServlet {
         
         
         //Se retorna el resultado de la consulta a la pagina jsp para visualizarlo
-        //request.setAttribute("resultado", resultado);
+        request.setAttribute("resultado", id);
         //El nombre de la pagina debe ser la quieres que se vizualize ejm: nombre.jsp
         request.getRequestDispatcher("index.jsp").forward(request, response);
         

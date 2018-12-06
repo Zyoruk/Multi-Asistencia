@@ -1,3 +1,10 @@
+<%-- 
+    Document   : index
+    Created on : Dec 6, 2018, 2:55:09 PM
+    Author     : Zyoruk
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -22,17 +29,17 @@ and open the template in the editor.
 							Iniciar sesión
 						</div>
 						<div class="card-container container">
-							<form>
+							<form method="get" action="<%=request.getContextPath() %>/Login"> 
 								<div class="form-group">
 									<label for="nombre-usuario">Usuario:</label>
-									<input type="text" class="form-control" name="nombre-usuario" id="nombre-usuario" />
+									<input type="text" class="form-control" name="nombre-usuario" id="nombre_usuario" />
 								</div>
 								<div class="form-group">
 									<label for="contrasena-usuario">Contraseña:</label>
-									<input type="text" class="form-control" name="contrasena-usuario" id="contrasena-usuario" />
+									<input type="text" class="form-control" name="contrasena-usuario" id="contrasena_usuario" />
 								</div>
 								<div class="form-group">
-									<button class="btn btn-primary">Entrar</button>
+                                                                        <input type="submit" value="Entrar" class="btn btn-primary">
 									<a href="admin/crear_cuenta.html" class="btn btn-light">Crear cuenta</a>
 								</div>
 							</form>
@@ -47,3 +54,4 @@ and open the template in the editor.
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	</body>
 </html>
+

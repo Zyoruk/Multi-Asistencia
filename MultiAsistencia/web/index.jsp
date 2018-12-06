@@ -14,9 +14,9 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html>
 	<head lang="es">
-		<meta charset="utf-8">
+		<%@ include file="meta.jsp" %>  
 		<title>Seguro Multiasistencia</title>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<%@ include file="headerIncludes.jsp" %>  
 	</head>
 	<body>
 		<div class="container" style="margin-top: 50px; margin-bottom: 70px;">
@@ -32,19 +32,23 @@ and open the template in the editor.
 							<form method="get" action="<%=request.getContextPath() %>/Login"> 
 								<div class="form-group">
 									<label for="nombre-usuario">Usuario:</label>
-									<input type="text" class="form-control" name="nombre-usuario" id="nombre_usuario" />
+									<input type="text" class="form-control" name="nombre-usuario" id="nombre_usuario" placeholder="Escriba el nombre de usuario"/>
 								</div>
 								<div class="form-group">
 									<label for="contrasena-usuario">Contraseña:</label>
-									<input type="text" class="form-control" name="contrasena-usuario" id="contrasena_usuario" />
+									<input type="text" class="form-control" name="contrasena-usuario" id="contrasena_usuario" placeholder="Escriba la contraseña de su usuario"/>
 								</div>
 								<div class="form-group">
                                                                         <input type="submit" value="Entrar" class="btn btn-primary">
-									<a href="admin/crear_cuenta.html" class="btn btn-light">Crear cuenta</a>
+									<a href="registrar_usuario.jsp" class="btn btn-light">Crear cuenta</a>
 								</div>
                                                                 
                                                                 <div>
-                                                                    <h1> Bienvenido <%= request.getAttribute{"aviso"}%></h1>
+<<<<<<< HEAD
+                                                                    
+=======
+                                                                    <h1> Bienvenido <%= request.getAttribute("aviso")%></h1>
+>>>>>>> db3b68f20cfaa82f6d0ec8fa6860a5528c283dfa
                                                                 </div>
 							</form>
 						</div>
@@ -54,8 +58,7 @@ and open the template in the editor.
 			</div>
 		</div>		
 		
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+		<%@ include file="footer.jsp" %> 
 	</body>
 </html>
 

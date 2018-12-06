@@ -47,7 +47,7 @@ Session session = null;
             
             if(username.equalsIgnoreCase(te.getCorreo()) && pass.equalsIgnoreCase(te.getContrasena())){
                 
-                mensaje = Integer.toString(te.getIdcredenciales());
+                mensaje = "existe";
             }
             else{
                 mensaje = "Usuario no registrado"; 

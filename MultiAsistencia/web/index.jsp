@@ -44,7 +44,7 @@ and open the template in the editor.
 								</div>
                                                                 
                                                                 <div>
-                                                                    <h1> Bienvenido <%= request.getAttribute{"aviso"}%></h1>
+                                                                    <h1> Bienvenido <%= request.getAttribute("aviso")%></h1>
                                                                 </div>
 							</form>
 						</div>

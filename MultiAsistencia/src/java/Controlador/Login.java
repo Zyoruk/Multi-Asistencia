@@ -44,6 +44,7 @@ public class Login extends HttpServlet {
         
         if(id.equalsIgnoreCase("existe")){
             String redirectURL = "http://localhost:8285/MultiAsistencia/Perfil.jps";
+            response.sendRedirect(redirectURL);
         }
         
         //Se retorna el resultado de la consulta a la pagina jsp para visualizarlo

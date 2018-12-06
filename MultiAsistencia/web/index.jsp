@@ -32,19 +32,23 @@ and open the template in the editor.
 							<form method="get" action="<%=request.getContextPath() %>/Login"> 
 								<div class="form-group">
 									<label for="nombre-usuario">Usuario:</label>
-									<input type="text" class="form-control" name="nombre-usuario" id="nombre_usuario" />
+									<input type="text" class="form-control" name="nombre-usuario" id="nombre_usuario" placeholder="Escriba el nombre de usuario"/>
 								</div>
 								<div class="form-group">
 									<label for="contrasena-usuario">Contraseña:</label>
-									<input type="text" class="form-control" name="contrasena-usuario" id="contrasena_usuario" />
+									<input type="text" class="form-control" name="contrasena-usuario" id="contrasena_usuario" placeholder="Escriba la contraseña de su usuario"/>
 								</div>
 								<div class="form-group">
                                                                         <input type="submit" value="Entrar" class="btn btn-primary">
-									<a href="admin/crear_cuenta.html" class="btn btn-light">Crear cuenta</a>
+									<a href="registrar_usuario.jsp" class="btn btn-light">Crear cuenta</a>
 								</div>
                                                                 
                                                                 <div>
+<<<<<<< HEAD
+                                                                    
+=======
                                                                     <h1> Bienvenido <%= request.getAttribute("aviso")%></h1>
+>>>>>>> db3b68f20cfaa82f6d0ec8fa6860a5528c283dfa
                                                                 </div>
 							</form>
 						</div>

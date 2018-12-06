@@ -42,6 +42,10 @@ and open the template in the editor.
                                                                         <input type="submit" value="Entrar" class="btn btn-primary">
 									<a href="admin/crear_cuenta.html" class="btn btn-light">Crear cuenta</a>
 								</div>
+                                                                
+                                                                <div>
+                                                                    <h1> Bienvenido <%= request.getAttribute{"aviso"}%></h1>
+                                                                </div>
 							</form>
 						</div>
 					</div>

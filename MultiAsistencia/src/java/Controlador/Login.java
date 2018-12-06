@@ -38,6 +38,10 @@ public class Login extends HttpServlet {
         
         //validar
         
+        Operaciones_login oper = new Operaciones_login();
+        //identificador de usuario
+        int id = Integer.parseInt(oper.getUsuario(nombre, pass));
+        
         
        
             
@@ -47,7 +51,7 @@ public class Login extends HttpServlet {
         //Se retorna el resultado de la consulta a la pagina jsp para visualizarlo
         //request.setAttribute("resultado", resultado);
         //El nombre de la pagina debe ser la quieres que se vizualize ejm: nombre.jsp
-        request.getRequestDispatcher("index.html").forward(request, response);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
         
         
     }

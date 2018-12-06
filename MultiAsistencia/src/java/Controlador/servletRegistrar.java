@@ -40,6 +40,26 @@ public class servletRegistrar extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            name = request.getParameter("tbName");
+        middleName = request.getParameter("tbMiddleName");
+        lastName = request.getParameter("tbLastName");
+        username =request.getParameter("tbUsername");
+        password =request.getParameter("tbPass");
+        
+          validarUsuario v = new validarUsuario();
+           
+            if(v.validar(username)){
+                request.setAttribute("resultado", "Nombre de Usuario ya existente");
+                request.getRequestDispatcher("registrar_usuario.jsp").forward(request, response);
+            } else {
+                Credenciales c = new Credenciales(username, password);
+                v.insertCredencial(c);
+                TipoUsuario t = new TipoUsuario(name);
+                v.insertTpo(t);
+                Clientes ce = new Clientes(c,t, name, middleName, lastName);
+                v.insert(ce);
+                request.getRequestDispatcher("index.jsp").forward(request, response);   
+            }
             /* TODO output your page here. You may use following sample code. */
             
         }     
@@ -72,26 +92,7 @@ public class servletRegistrar extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        name = request.getParameter("tbName");
-        middleName = request.getParameter("tbMiddleName");
-        lastName = request.getParameter("tbLastName");
-        username =request.getParameter("tbUsername");
-        password =request.getParameter("tbPass");
         
-          validarUsuario v = new validarUsuario();
-           
-            if(v.validar(username)){
-                request.setAttribute("resultado", "Nombre de Usuario ya existente");
-                request.getRequestDispatcher("registrar_usuario.jsp").forward(request, response);
-            } else {
-                Credenciales c = new Credenciales(username, password);
-                v.insertCredencial(c);
-                TipoUsuario t = new TipoUsuario(name);
-                v.insertTpo(t);
-                Clientes ce = new Clientes(c,t, name, middleName, lastName);
-                v.insert(ce);
-                request.getRequestDispatcher("index.jsp").forward(request, response);   
-            }
         }
     /**
      * Returns a short description of the servlet.
